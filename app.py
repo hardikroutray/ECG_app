@@ -1,5 +1,17 @@
  
 import streamlit as st 
+st.set_page_config(layout="wide")
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+
+
 # import tensorflow as tf
 # from tensorflow import keras
 # from tensorflow.keras.models import load_model
@@ -99,7 +111,18 @@ if st.sidebar.checkbox('Predict yourself (User Interactive)', True):
         st.markdown("The model predicted this ECG to be of a person having a **history of heart attack**.")
 
     st.markdown(
-        "The data is publicly available **[here](https://doi.org/10.1016/j.dib.2021.106762)** under Creative Commons License.")
+        "The data is publicly available **[here](https://doi.org/10.1016/j.dib.2021.106762)** under Creative Commons License. The 2D CNN notebook is hosted **[here](https://github.com/hardikroutray/ECG/blob/main/CNN2D_ECG.ipynb)**")
+
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+
+
+    st.markdown(" View the app **[source](https://github.com/hardikroutray/ECG_app)** ")
 
 
 if st.sidebar.checkbox('2D CNN', False):
@@ -185,5 +208,6 @@ if st.sidebar.checkbox('2D CNN', False):
     img = Image.open(BytesIO(response.content))
     st.image(img,width=800)
 
-    st.markdown("The feature maps for the ECG of a person having a **history of MI**.")
+    st.markdown("The feature maps for the ECG of a person having a **history of MI**.") 
+
 
