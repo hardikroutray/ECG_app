@@ -10,7 +10,34 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
 
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://github.com/hardikroutray/ECG/" target="_blank">Erdos ECG team</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
 
 # import tensorflow as tf
 # from tensorflow import keras
@@ -113,16 +140,16 @@ if st.sidebar.checkbox('Predict yourself (User Interactive)', True):
     st.markdown(
         "The data is publicly available **[here](https://doi.org/10.1016/j.dib.2021.106762)** under Creative Commons License. The 2D CNN notebook is hosted **[here](https://github.com/hardikroutray/ECG/blob/main/CNN2D_ECG.ipynb)**")
 
-    st.markdown('####')
-    st.markdown('####')
-    st.markdown('####')
-    st.markdown('####')
-    st.markdown('####')
-    st.markdown('####')
-    st.markdown('####')
+#    st.markdown('####')
+#    st.markdown('####')
+#    st.markdown('####')
+#    st.markdown('####')
+#    st.markdown('####')
+#    st.markdown('####')
+#    st.markdown('####')
 
 
-    st.markdown(" View the app **[source](https://github.com/hardikroutray/ECG_app)** ")
+#    st.markdown(" View the app **[source](https://github.com/hardikroutray/ECG_app)** ")
 
 
 if st.sidebar.checkbox('2D CNN', False):
