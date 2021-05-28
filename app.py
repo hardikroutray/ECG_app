@@ -10,8 +10,8 @@ import numpy as np
 import matplotlib as plt
 import matplotlib.pyplot as plt
 import seaborn as sn
-import warnings
-warnings.filterwarnings("ignore")
+#import warnings
+#warnings.filterwarnings("ignore")
 
 from PIL import Image
 import requests

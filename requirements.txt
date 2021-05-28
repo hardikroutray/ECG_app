@@ -3,7 +3,6 @@ ipywidgets
 seaborn
 matplotlib
 numpy
-warnings
 streamlit
 requests
 
