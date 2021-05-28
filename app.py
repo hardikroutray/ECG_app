@@ -8,6 +8,7 @@ hide_streamlit_style = """
             footer {visibility: hidden;}
             </style>
             """
+
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 footer="""<style>
@@ -51,6 +52,7 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 #import warnings
 #warnings.filterwarnings("ignore")
+import base64
 
 from PIL import Image
 import requests
@@ -152,6 +154,27 @@ if st.sidebar.checkbox('Predict yourself (User Interactive)', True):
 #    st.markdown(" View the app **[source](https://github.com/hardikroutray/ECG_app)** ")
 
 
+if st.sidebar.checkbox('Time Series (See Animation)', True):
+    filename = "movie.gif"
+#    if st.button("Play video",True):
+#    video_file = open(filename, 'rb')
+#    video_bytes = video_file.read()
+#    st.video(video_bytes)
+
+#    img = Image.open(filename)
+#    st.image(img,  caption="Time Series ECG")
+
+    file_ = open("movie.gif", "rb")
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+
+    st.markdown(
+        f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+        unsafe_allow_html=True,
+        )
+
+
 if st.sidebar.checkbox('2D CNN', False):
 
     st.markdown("# Exploratory Visualization of 2D CNN Model")
@@ -238,3 +261,6 @@ if st.sidebar.checkbox('2D CNN', False):
     st.markdown("The feature maps for the ECG of a person having a **history of MI**.") 
 
 
+if st.sidebar.checkbox('1D CNN', False):
+
+    st.markdown("# Under Development")
