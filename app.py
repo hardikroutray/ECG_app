@@ -102,12 +102,15 @@ if st.sidebar.checkbox('Predict yourself (User Interactive)', True):
         "The data is publicly available **[here](https://doi.org/10.1016/j.dib.2021.106762)** under Creative Commons License.")
 
 
-if st.sidebar.checkbox('2D CNN', True):
+if st.sidebar.checkbox('2D CNN', False):
 
     st.markdown("# Exploratory Visualization of 2D CNN Model")
 
     st.markdown("Representative single lead ECG images belonging to different classes of cardiological conditions")
-    img=Image.open('images/representative_ECG_images.png')
+    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/representative_ECG_images.png'
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+
     st.image(img)
     st.markdown("The single lead images have been cropped from a more larger 12 lead image and preprocessed for classification purposes. Only lead 2 image is used for classification in this project. There is ongoing effort to use all the lead images as different viewpoints and finally use an ensemble method for classification. The images are input as grayscale to the model after resizing them to a standard dimension for all the classes.")
 
