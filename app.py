@@ -174,8 +174,9 @@ if st.sidebar.checkbox('Time Series (See Animation)', True):
         unsafe_allow_html=True,
         )
 
+    st.markdown("The 2D CNN notebook is hosted **[here](https://github.com/hardikroutray/ECG/blob/main/ECG_project.ipynb)**")
 
-if st.sidebar.checkbox('2D CNN', False):
+if st.sidebar.checkbox('2D CNN (Images)', False):
 
     st.markdown("# Exploratory Visualization of 2D CNN Model")
 
@@ -197,14 +198,14 @@ if st.sidebar.checkbox('2D CNN', False):
     img = Image.open(BytesIO(response.content))
     st.image(img,width=500)
  
-    st.markdown("# Accuracy - 90.32 %")
+    st.markdown("# Accuracy - 90%")
 
     url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/Accuracy_2DCNN.png'
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
     st.image(img,width=600)
 
-    st.markdown("The model has an overall accuracy of **90.32 %** on the test set.")
+    st.markdown("The model has an average overall accuracy of **90%** on the test set.")
 
     st.markdown("# Confusion Matrix")
 
@@ -226,9 +227,9 @@ if st.sidebar.checkbox('2D CNN', False):
 
     st.markdown("The table shows the precision, recall, and f1 score for all the classes.") 
 
-    st.markdown("# Feature/Activation maps for each class")
+    st.markdown("# Feature/Activation maps")
 
-    st.markdown("As a sanity check that the CNN model is actually learning the ECG lineshape instead of the irrelevant image features, we trace back our steps and show the feature maps after each CNN layer. We do it for the four representative images shown at the beginning of this page") 
+    st.markdown("As a sanity check that the CNN model is actually learning the ECG lineshape instead of the irrelevant image features, we trace back our steps and show the feature maps after each CNN layer. We do it for all the four representative images shown at the beginning of this page. One is shown below.") 
 
     url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/CNN2D_Normal_featuremap.png'
     response = requests.get(url)
@@ -238,29 +239,88 @@ if st.sidebar.checkbox('2D CNN', False):
     st.markdown("The feature maps for the ECG of a person with a **normal** heart.")
 
 
-    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/CNN2D_MI_featuremap.png'
+    # url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/CNN2D_MI_featuremap.png'
+    # response = requests.get(url)
+    # img = Image.open(BytesIO(response.content))
+    # st.image(img,width=800)
+
+    # st.markdown("The feature maps for the ECG of a person having a **heart attack**.")
+
+    # url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/CNN2D_HB_featuremap.png'
+    # response = requests.get(url)
+    # img = Image.open(BytesIO(response.content))
+    # st.image(img,width=800)
+
+    # st.markdown("The feature maps for the ECG of a person having an **abnormal heartbeat**.")
+
+
+    # url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/CNN2D_PMI_featuremap.png'
+    # response = requests.get(url)
+    # img = Image.open(BytesIO(response.content))
+    # st.image(img,width=800)
+
+    # st.markdown("The feature maps for the ECG of a person having a **history of MI**.") 
+
+
+if st.sidebar.checkbox('1D CNN (Time Series)', False):
+
+    st.markdown("# Exploratory Visualization of 1D CNN Model")
+
+#    st.markdown("Representative time series ECG images after processing for different classes of cardiological conditions")
+
+    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/img1.png'
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
-    st.image(img,width=800)
 
-    st.markdown("The feature maps for the ECG of a person having a **heart attack**.")
+    st.image(img,caption="Overlay of ECG image line shape and post-processed time series extraction shape")
 
-    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/CNN2D_HB_featuremap.png'
+    st.markdown("Contrary to using only images, converting the data to time series allows us to explore the ECGs of COVID patients. So all the five classes in the dataset are used for the 1D CNN analysis")
+
+    st.markdown("# Model Summary")
+    #model.summary()
+
+    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/Model_sum_ati_1.png'
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
-    st.image(img,width=800)
+    st.image(img,width=500)
+ 
+    st.markdown("# Accuracy - 87%")
 
-    st.markdown("The feature maps for the ECG of a person having an **abnormal heartbeat**.")
+#    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/conf_At_1.png'
+#    response = requests.get(url)
+#    img = Image.open(BytesIO(response.content))
+#    st.image(img,width=600)
 
+    st.markdown("The model has an average overall accuracy of **87%** on the test set.")
 
-    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/CNN2D_PMI_featuremap.png'
+    st.markdown("# Confusion Matrix")
+
+    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/conf_At_1.png'
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
-    st.image(img,width=800)
+    st.image(img,width=600)
 
-    st.markdown("The feature maps for the ECG of a person having a **history of MI**.") 
+# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
+    st.markdown("The model also predicts MI ECG images with a whopping **100 %** accuracy.") 
+
+    st.markdown("# Score Table")
+
+    url = 'https://raw.githubusercontent.com/hardikroutray/ECG//main/app/images/Score_table_1.png'
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+    st.image(img,width=600)
+
+    st.markdown("The table shows the precision, recall, and f1 score for all the classes.") 
 
 
-if st.sidebar.checkbox('1D CNN', False):
+if st.sidebar.checkbox('KNN (Time Series)', False):
+
+    st.markdown("# Under Development")
+
+if st.sidebar.checkbox('Random Forest (Time Series)', False):
+
+    st.markdown("# Under Development")
+
+if st.sidebar.checkbox('Miscellaneous', False):
 
     st.markdown("# Under Development")
