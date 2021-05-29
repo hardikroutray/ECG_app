@@ -174,7 +174,7 @@ if st.sidebar.checkbox('Time Series (See Animation)', True):
         unsafe_allow_html=True,
         )
 
-    st.markdown("The 1D CNN notebook is hosted **[here](https://github.com/hardikroutray/ECG/blob/main/ECG_project.ipynb)**")
+    st.markdown("The 1D CNN notebook is hosted **[here](https://github.com/hardikroutray/ECG/blob/main/Multi_lead_1dCNN.ipynb)**")
 
 if st.sidebar.checkbox('2D CNN (Images)', False):
 
